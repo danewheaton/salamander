@@ -319,9 +319,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1092357412}
   - component: {fileID: 1092357411}
-  - component: {fileID: 1092357410}
   - component: {fileID: 1092357409}
   - component: {fileID: 1092357408}
+  - component: {fileID: 1092357410}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -341,7 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdb68915f190dc48bd5315ceccce966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 1092357409}
   speed: 1
+  movementType: 0
 --- !u!50 &1092357409
 Rigidbody2D:
   serializedVersion: 4
@@ -678,7 +680,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 29ec36399a8694d03858b473739076dd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.8
-  m_Pitch: 0.8
+  m_Pitch: 0.7
   Loop: 1
   Mute: 0
   Spatialize: 0
