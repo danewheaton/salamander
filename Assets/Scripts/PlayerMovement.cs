@@ -4,20 +4,39 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 10;
+    enum movementTypes { Sidescroller, TopDown}
 
-    Rigidbody2D myRigidbody;
+    [SerializeField] Rigidbody2D myRigidbody;
+
+    [Space]
+
+    [SerializeField, Range(1, 10)] float speed = 5;
+    [SerializeField] movementTypes movementType = movementTypes.Sidescroller;
+
     Vector2 input;
 
-    private void Start()
+    float speedModifier = 2;
+
+    private void OnValidate()
     {
-        myRigidbody = GetComponentInChildren<Rigidbody2D>();
+        if (!myRigidbody)
+        {
+            myRigidbody = GetComponentInChildren<Rigidbody2D>();
+        }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        input = new Vector2(Input.GetAxis("Horizontal"), movementType == movementTypes.TopDown ? Input.GetAxis("Vertical") : 0);
 
-        myRigidbody.MovePosition((Vector2)myRigidbody.transform.position + input * speed);
+        if (movementType == movementTypes.TopDown)
+        {
+            myRigidbody.gravityScale = 0;
+        }
+
+        if (input != Vector2.zero)
+        {
+            myRigidbody.MovePosition((Vector2)myRigidbody.transform.position + input * speed * speedModifier * Time.deltaTime);
+        }
     }
 }
