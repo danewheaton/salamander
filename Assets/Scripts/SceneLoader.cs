@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
 
     BoxCollider2D triggerZone;
 
-    string overworldName = "EstuaryOverworld", stumpName = "Stump", dockName = "Dock", logName = "Log";
+    string overworldName = "EstuaryOverworld", stumpName = "Stump", dockName = "Dock", logName = "Hollow Tree";
 
     private void OnValidate()
     {
