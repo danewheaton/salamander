@@ -9,6 +9,8 @@ public class CameraMovement : MonoBehaviour
     [SerializeField, Range(1, 10)] float speed = 5;
     [SerializeField] Vector2 offset = Vector2.zero;
 
+    Camera cam;
+
     Vector3 targetPos;
 
     float speedModifier = 10;
@@ -23,6 +25,13 @@ public class CameraMovement : MonoBehaviour
         targetPos = player.position;
 
         CenterOnPlayer();
+
+        Camera camComponent = GetComponent<Camera>();
+
+        if (camComponent)
+        {
+            cam = camComponent;
+        }
     }
 
     private void FixedUpdate()
@@ -39,5 +48,15 @@ public class CameraMovement : MonoBehaviour
         {
             transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
         }
+    }
+
+    public void ChangeZoom(float newZoom)
+    {
+        cam.orthographicSize = newZoom;
+    }
+
+    public float GetZoom()
+    {
+        return cam.orthographicSize;
     }
 }

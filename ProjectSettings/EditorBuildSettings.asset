@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EstuaryOverworld.unity
     guid: 5da20c47cbc81744491802159440ac93
   - enabled: 1
-    path: Assets/Scenes/Log.unity
+    path: Assets/Scenes/Hollow Tree.unity
     guid: 6f84cc8d98dc2624da628cbec2b4677f
   - enabled: 1
     path: Assets/Scenes/Dock.unity
